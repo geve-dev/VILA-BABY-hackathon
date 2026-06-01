@@ -18,6 +18,19 @@ CREATE SCHEMA IF NOT EXISTS `villa_baby` DEFAULT CHARACTER SET utf8mb4 COLLATE u
 USE `villa_baby` ;
 
 -- -----------------------------------------------------
+-- Table `villa_baby`.`communities`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `villa_baby`.`communities` (
+  `communities_id` INT NOT NULL AUTO_INCREMENT,
+  `communities_name` VARCHAR(255) NOT NULL,
+  `communities_desc` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`communities_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `villa_baby`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `villa_baby`.`users` (
@@ -38,12 +51,17 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `villa_baby`.`posts` (
   `posts_id` INT NOT NULL AUTO_INCREMENT,
-  `posts_users_id` INT NOT NULL,
+  `posts_users_id` INT NULL DEFAULT NULL,
+  `posts_communities_id` INT NULL DEFAULT NULL,
   `posts_content` VARCHAR(255) NOT NULL,
   `posts_url` VARCHAR(255) NULL DEFAULT NULL,
   `posts_title` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`posts_id`),
   INDEX `idusers_idx` (`posts_users_id` ASC) VISIBLE,
+  INDEX `fk_communities_posts_idx` (`posts_communities_id` ASC) VISIBLE,
+  CONSTRAINT `fk_communities_posts`
+    FOREIGN KEY (`posts_communities_id`)
+    REFERENCES `villa_baby`.`communities` (`communities_id`),
   CONSTRAINT `idusers`
     FOREIGN KEY (`posts_users_id`)
     REFERENCES `villa_baby`.`users` (`user_id`))
@@ -69,19 +87,6 @@ CREATE TABLE IF NOT EXISTS `villa_baby`.`comments` (
   CONSTRAINT `IDuser`
     FOREIGN KEY (`comments_users_id`)
     REFERENCES `villa_baby`.`users` (`user_id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `villa_baby`.`communities`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `villa_baby`.`communities` (
-  `communities_id` INT NOT NULL AUTO_INCREMENT,
-  `communities_name` VARCHAR(255) NOT NULL,
-  `communities_desc` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`communities_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
