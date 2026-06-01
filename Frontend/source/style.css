@@ -329,60 +329,44 @@ nav ul li:active {
     max-width: 1200px; /* Ou o tamanho que preferir */
 }
 
-/* Garante que o card mantenha seu tamanho e não encolha */
+/* card profissionais */
 .card {
     background-color: #fff;
-    border: 4px solid #3F0251;
+    border: 4px solid #325471;
     border-radius: 25px;
-    height: auto; /* Deixe automático para o conteúdo respirar */
+    height: 260px; /* Deixe automático para o conteúdo respirar */
     padding-bottom: 20px;
     min-width: 250px; /* Largura fixa para cada card */
     flex-shrink: 0;   /* Impede que o flexbox esprema o card */
     transition: 0.3s ease;
+   
 }
 
 .card img{
     display: block;
     margin: 0 auto;
-    width: 80%;
-    height: 200px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    width: 60%;
+    height: 150px;
+    border-radius: 100px;
+    margin-top: 20px;
 }
 
 .card h3{
     font-size: 24px;
-    color: #3F0251;
+    color: black;
     position: relative;
     left: 10px;
     bottom: 10px;
 }
 
-.card span{
-    color: #A45ECD;
-    text-decoration: line-through;
-    position: relative;
-    bottom: 5px;
-    left: 10px;
-}
-
-.card p{
-    color: #572063;
-    font-weight: bold;
-    font-size: 24px;
-    position: relative;
-    bottom: 25px;
-    left: 10px;
-}
-
 .card button{
-    background-color: #FBFF00;
-    color: #572063;
-    border: 2px solid #572063;
+    background-color: #325471;
+    color: white;
+    border: 2px solid black;
     border-radius: 50px;
     padding: 10px 20px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 25px;
     font-weight: bold;
     font-size: 1.2rem       ;
     position: relative;
@@ -395,9 +379,9 @@ nav ul li:active {
 }
 
 .card button:hover{
-    background-color: #3F0251;
-    color: #FBFF00;
-    box-shadow: 0 0 15px #3F0251;
+    background-color: #325471;
+    color: white;
+    box-shadow: 0 0 15px #325471;
     transform: translateY(-3px);
     transition: 0.3s;
 }
@@ -410,36 +394,13 @@ nav ul li:active {
 }
 
 footer {
-    background-color: #3F0251;
+    background-color: #325471;
     color: white;
-    height: 220px;
-    box-shadow: #3F0251 0 0 100px;
+    height: 100px;
+    box-shadow: #325471 0 0 100px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    transition: 0.3s;
-    border-top: 5px solid #3F0251;
-}
-
-footer:hover{
-    border-top: 5px solid #3f02513f;
-    background-color: #3F0251;
-    box-shadow: #3F0251 0 0 100px;
-    transition: 0.3s;
-}
-
-footer img {
-    height: 200px;
-    font-weight: 100;
-    filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.5));
-    transition: 0.3s;
-    /* margin-bottom: 10px; */
-}
-
-footer img:hover{
-    filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.9));
-    transform: scale(1.05);
-    transition: 0.3s;
 }
 
 .c{
@@ -455,13 +416,13 @@ footer img:hover{
 .redes-sociais {
     display: flex;
     justify-content: space-around;
-    gap: 35px;
+    gap: 20px;
 }
 
 .redes-sociais i {
     cursor: pointer;
     transition: color 0.3s ease;
-    font-size: 40px; 
+    font-size: 30px; 
     color:#ffffff;
 }
 
@@ -483,8 +444,8 @@ bottom: 20px;
 right: 20px;
 display: none;
 background: #fff;
-color: #3F0251;
-border: 3px solid #3F0251;
+color: #325471;
+border: 3px solid #325471;
 padding: 10px 15px;
 border-radius: 50%;
 cursor: pointer;
@@ -493,7 +454,7 @@ transition: 0.3s;
 }
 
 #btnTopo:hover {
-background: #3F0251;
+background: #325471;
 border: 3px solid #fff;
 color: #fff;
 }
@@ -1181,16 +1142,16 @@ text-align: center;
 }
 
 .cardC h3{
-    font-size: 24px;
+    font-size: 20px;
     color: black;
     position: relative;
-    left: 10px;
+    left: 8px;
     bottom: 10px;
 }
 
 .cardC p{
     color: black;
-    font-size: 24px;
+    font-size: 20px;
     position: relative;
     bottom: 25px;
     left: 10px;
