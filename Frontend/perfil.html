@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Griffy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="source/perfil.css">
+    <title>Vila baby</title>
+</head>
+
+<body>
+    <div id="overlay"></div>
+
+    <header>
+        <h2><a href="#" class="logo">Vila baby</a></h2>
+        <input class="busca" type="text" placeholder="O que você procura?">
+        <div class="botao-header">
+
+        <button class="conta" id="abrir-login">
+            <svg width="25" height="25" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26 28.5V25.5C26 23.9087 25.3679 22.3826 24.2426 21.2574C23.1174 20.1321 21.5913 19.5 20 19.5H8C6.4087 19.5 4.88258 20.1321 3.75736 21.2574C2.63214 22.3826 2 23.9087 2 25.5V28.5M20 7.5C20 10.8137 17.3137 13.5 14 13.5C10.6863 13.5 8 10.8137 8 7.5C8 4.18629 10.6863 1.5 14 1.5C17.3137 1.5 20 4.18629 20 7.5Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </button>
+        </div>
+    </header>
+    
+     <nav>
+        <ul>
+            <li><a href="#maisVendidos">Tela inicial</a></li>
+           
+        </ul>
+    </nav> 
+
+    <main class="perfil-github-container">
+        <aside class="perfil-sidebar">
+            <div class="foto-perfil-moldura">
+                <img src="image/perfil/usuaria.jpg" alt="Avatar">
+            </div>
+            <div class="user-info-text">
+                <h2>Natalia</h2>
+                <p>32 anos, mãe de dois filhos lindos. Na descoberta de como ser uma melhor mãe.</p>
+            </div>
+            <button class="btn-editar-gh">Editar Perfil</button>
+        </aside>
+
+        <section class="perfil-conteudo">
+            <div class="nav-tabs">
+                <span class="tab active" id="tab-favoritos" onclick="trocarAba('favoritos')">Favoritos</span>
+                <span class="tab" id="tab-grupos" onclick="trocarAba('grupos')">Grupos</span>
+            </div>
+
+            <div id="conteudo-favoritos" class="aba-conteudo active">
+                <div class="grid-favoritos-grande">
+                    <div class="card-gh-grande">
+                        <div class="card-gh-header">
+                            <a href="#">Dra. Ana Silva</a>
+                            <span class="label-tipo">Pediatra</span>
+                        </div>
+                        <p>Especialista em recém-nascidos e amamentação.</p>
+                        <div class="card-gh-footer">
+                            <span>⭐ 4.9</span> <span>📍 São Paulo</span>
+                        </div>
+                    </div>
+
+                    <div class="card-gh-grande">
+                        <div class="card-gh-header">
+                            <a href="#">Higiene do Bebê</a>
+                            <span class="label-tipo">Cuidado</span>
+                        </div>
+                        <p>Passo a passo completo para o banho e troca de fraldas.</p>
+                        <div class="card-gh-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="conteudo-grupos" class="aba-conteudo">
+    <div class="grid-grupos-solo">
+        <div class="urso-solo-item">
+            <span class="mes-solo">Jan</span>
+            <div class="urso-imagem-container">
+                <img src="image/urso7.png" alt="Mês 1">
+            </div>
+        </div>
+
+        <div class="urso-solo-item">
+            <span class="mes-solo">Fev</span>
+            <div class="urso-imagem-container">
+                <img src="image/urso7.png" alt="Mês 2">
+            </div>
+        </div>
+        
+        </div>
+</div>
+
+        </section>
+    </main>
+
+    
+    <!-- footer -->
+    <footer>
+        <p class="c">© 2025 <span class="mgcty"> Vila Baby.</span></p>
+        
+        <div class="redes-sociais">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+    </footer>
+
+    
+
+    <script src="source/perfil.js"></script>
+</body>
+</html>

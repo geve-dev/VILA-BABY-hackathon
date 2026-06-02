@@ -1,4 +1,4 @@
-const repo = require('../models/users_model');
+const repo = require('../models/users_models');
 
 const FindAllUsers = async (req, res) => {
     try {
