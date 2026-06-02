@@ -36,7 +36,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `villa_baby`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(255) NOT NULL,
-  `user_email` VARCHAR(255) NOT NULL,
+  `user_email` VARCHAR(255) NOT NULL UNIQUE,
   `user_password` VARCHAR(45) NOT NULL,
   `user_url` VARCHAR(255) NULL DEFAULT NULL,
   `user_desc` VARCHAR(255) NULL DEFAULT NULL,
@@ -51,8 +51,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `villa_baby`.`posts` (
   `posts_id` INT NOT NULL AUTO_INCREMENT,
-  `posts_users_id` INT NULL DEFAULT NULL,
-  `posts_communities_id` INT NULL DEFAULT NULL,
+  `posts_users_id` INT NOT NULL,
+  `posts_communities_id` INT NOT NULL,
   `posts_content` VARCHAR(255) NOT NULL,
   `posts_url` VARCHAR(255) NULL DEFAULT NULL,
   `posts_title` VARCHAR(255) NOT NULL,
@@ -74,19 +74,24 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `villa_baby`.`comments`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `villa_baby`.`comments` (
-  `comments_id` INT NOT NULL,
+  `comments_id` INT NOT NULL AUTO_INCREMENT,
   `comments_posts_id` INT NULL DEFAULT NULL,
   `comments_users_id` INT NULL DEFAULT NULL,
   `comments_content` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`comments_id`, `comments_content`),
+
+  PRIMARY KEY (`comments_id`),
+
   INDEX `postsid_idx` (`comments_posts_id` ASC) VISIBLE,
   INDEX `IDusers_idx` (`comments_users_id` ASC) VISIBLE,
+
   CONSTRAINT `IDposts`
     FOREIGN KEY (`comments_posts_id`)
     REFERENCES `villa_baby`.`posts` (`posts_id`),
+
   CONSTRAINT `IDuser`
     FOREIGN KEY (`comments_users_id`)
-    REFERENCES `villa_baby`.`users` (`user_id`))
+    REFERENCES `villa_baby`.`users` (`user_id`)
+)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -98,7 +103,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `villa_baby`.`employees` (
   `employees_id` INT NOT NULL AUTO_INCREMENT,
   `employees_name` VARCHAR(255) NOT NULL,
-  `employees_email` VARCHAR(45) NOT NULL,
+  `employees_email` VARCHAR(45) NOT NULL UNIQUE,
   `employees_password` VARCHAR(45) NOT NULL,
   `employees_desc` VARCHAR(255) NOT NULL,
   `employees_url` VARCHAR(255) NULL DEFAULT NULL,
