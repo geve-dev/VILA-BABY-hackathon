@@ -14,3 +14,25 @@ function trocarAba(aba) {
         document.getElementById('tab-grupos').classList.add('active');
     }
 }
+
+//pegar o id do médico da URL
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+console.log("ID do médico:", id);
+
+//buscar os dados do médico usando o ID
+async function carregarMedico() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const response = await fetch(`http://localhost:3001/employees/${id}`);
+  const medico = await response.json();
+
+  // colocar na tela
+   document.getElementById("fotoMedico").src = medico.employees_url;
+    document.getElementById("nomeMedico").textContent = medico.employees_name;
+    document.getElementById("descMedico").textContent = medico.employees_desc;
+}
+
+carregarMedico();
