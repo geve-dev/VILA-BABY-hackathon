@@ -1,4 +1,4 @@
-const Like = require('../models/likes_Models');
+const Like = require('../models/likes_models');
 const pool = require('../config/db');
 
 const ToggleLike = async (req, res) => {

@@ -11,7 +11,7 @@ const FindAllComments = async (req, res) => {
 
 const FindCommentByPostId = async (req, res) => {
     try {
-        const comments = await repo.getCommentsByPostId(req.params.postId);
+        const comments = await repo.getCommentsByPost(req.params.postId);
         res.json(comments);
     } catch (error) {
         res.status(500).json({ error: 'Erro ao buscar comentários' });

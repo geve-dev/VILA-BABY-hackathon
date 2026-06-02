@@ -1,4 +1,4 @@
-const repo = require("../models/emplo_models");
+const repo = require("../models/posts_models");
 
 const FindAllPosts = async (req, res) => {
   try {
