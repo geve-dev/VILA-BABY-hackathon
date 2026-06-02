@@ -43,18 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarLogin = document.getElementById('sidebar-login');
   const abrirLogin   = document.getElementById('abrir-login');
   const fecharLogin  = document.getElementById('fechar-login');
-  const irParaUser   = document.getElementById('irParaUser');
-
- irParaUser.addEventListener('click', () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  if (!user) {
-    alert("Você precisa estar logado!");
-    return;
-  }
-
-  window.location.href = "./perfil.html";
-});
 
   function abrirSidebar(sidebar) {
     if (!sidebar) return;
@@ -90,38 +78,3 @@ function scrollCard(id, distance) {
         behavior: 'smooth'
     });
 }
-
-// carregar os medicos
-
-async function carregarEmployees() {
-  try {
-    const response = await fetch("http://localhost:3001/employees");
-    const employees = await response.json();
-
-    const container = document.getElementById("listaEmployees");
-    container.innerHTML = "";
-
-    employees.forEach(emp => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-
-      card.innerHTML = `
-        <img src="${emp.employees_url}" alt="${emp.employees_name}">
-        <h3>${emp.employees_name}</h3>
-        <button class="prof">Ver mais</button>
-      `;
-
-      // ação do botão
-     card.querySelector(".prof").addEventListener("click", () => {
-  window.location.href = `medico.html?id=${emp.employees_id}`;
-});
-
-      container.appendChild(card);
-    });
-
-  } catch (error) {
-    console.error("Erro:", error);
-  }
-}
-
-carregarEmployees();

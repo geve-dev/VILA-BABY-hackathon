@@ -7,8 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Griffy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="source/perfil.css">
-    <title>Vila baby perfil</title>
+    <link rel="stylesheet" href="source/theme.css">
+    <link rel="stylesheet" href="source/style.css">
+    <title>Vila baby</title>
 </head>
 
 <body>
@@ -18,7 +19,11 @@
         <h2><a href="#" class="logo">Vila baby</a></h2>
         <input class="busca" type="text" placeholder="O que você procura?">
         <div class="botao-header">
-
+            
+        <button id="theme-toggle" title="Alternar tema">
+            <i class="fas fa-sun"></i>
+        </button>
+            
         <button class="conta" id="abrir-login">
             <svg width="25" height="25" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M26 28.5V25.5C26 23.9087 25.3679 22.3826 24.2426 21.2574C23.1174 20.1321 21.5913 19.5 20 19.5H8C6.4087 19.5 4.88258 20.1321 3.75736 21.2574C2.63214 22.3826 2 23.9087 2 25.5V28.5M20 7.5C20 10.8137 17.3137 13.5 14 13.5C10.6863 13.5 8 10.8137 8 7.5C8 4.18629 10.6863 1.5 14 1.5C17.3137 1.5 20 4.18629 20 7.5Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -82,14 +87,14 @@
         <div class="urso-solo-item">
             <span class="mes-solo">Jan</span>
             <div class="urso-imagem-container">
-                <img src="image/ursos/urso1.png" alt="Mês 1">
+                <img src="image/urso7.png" alt="Mês 1">
             </div>
         </div>
 
         <div class="urso-solo-item">
             <span class="mes-solo">Fev</span>
             <div class="urso-imagem-container">
-                <img src="image/ursos/urso2.png" alt="Mês 2">
+                <img src="image/urso7.png" alt="Mês 2">
             </div>
         </div>
         
@@ -113,7 +118,7 @@
     </footer>
 
     
-
+    <script src="source/theme-toggle.js"></script>
     <script src="source/perfil.js"></script>
 </body>
 </html>

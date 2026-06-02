@@ -2,7 +2,7 @@ body{
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #9AB6CE;
+    background-color: var(--bg-main);
 }
 
 #overlay {
@@ -25,8 +25,8 @@ header{
     width: 90%;
     transform: translateX(-50%);
     height: 50px;
-    background-color: #325471;
-    color: #ffffff;
+    background-color: var(--bg-header);
+    color: var(--text-white);
     padding: 5px 0;
     text-align: center;
     display: flex;
@@ -40,7 +40,7 @@ header{
 
 .logo{
     margin-left: 50px;
-    color: #ffffff;
+    color: var(--text-main);
     font-family: "Griffy", system-ui;
     font-weight: 1000;
     font-style: normal;
@@ -53,7 +53,7 @@ header{
     width: 500px;
     border-radius: 50px;
     cursor: text;
-    border: 3px solid #ffffff;
+    border: 3px solid var(--bg-main);
     background-color: transparent;
     outline: none;    
     padding-left: 15px;
@@ -66,6 +66,10 @@ header{
 
 .botao-header{
     width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center; /* Centraliza os botões dentro */
+    gap: 10px; /* Espaço entre os botões */
 }
 
 .conta{
@@ -76,7 +80,6 @@ header{
     color: #ffffff;
     border: 3px solid #ffffff;
     cursor: pointer;
-    margin-right: 10px;
     transition: 0.3s;
 }
 
@@ -98,7 +101,7 @@ nav{
     top: 62px; /* Espaço abaixo do header */
     left: 50%;
     transform: translateX(-50%);
-    background-color: #325471;
+    background-color: var(--bg-header);
     width: 55%;
     height: 55px;
     z-index: 10;
@@ -196,12 +199,12 @@ nav ul li:active {
 .banner .controls button{
     background-color: white;
     border-radius: 100px;
-    border: 3px solid #325471;
+    border: 3px solid var(--bg-header);
     font-size: 25px;
     padding: 0 3px 5px 0;
     width: 40px;
     height: 40px;
-    color: #325471;
+    color: var(--bg-header);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -210,7 +213,7 @@ nav ul li:active {
 
 
 .banner .controls button:hover {
-    background-color: #325471;
+    background-color: var(--bg-header);
     color: white;
     transition: 0.5s;
 }
@@ -255,35 +258,35 @@ nav ul li:active {
 }
 
 .mais-vendidos:hover{
-    border-top: 4px solid #fff;
-    border-bottom: 4px solid #fff;
-    box-shadow: #fff 0 0 50px;
+    border-top: 4px solid var(--bg-header);
+    border-bottom: 4px solid var(--bg-header);
+    box-shadow: var(--bg-header) 0 0 50px;
     transition: 0.5s ease-in-out;
 }
 
 .meninas:hover{
-    border-top: 5px solid #fff;
-    border-bottom: 5px solid #fff;
-    box-shadow: #fff 0 0 50px;
+    border-top: 4px solid var(--bg-header);
+    border-bottom: 4px solid var(--bg-header);
+    box-shadow: var(--bg-header) 0 0 50px;
     transition: 0.5s ease-in-out;
 }
 
 .meninos:hover{
-    border-top: 4px solid #fff;
-    border-bottom: 4px solid #fff;
-    box-shadow: #fff 0 0 50px;
+    border-top: 4px solid var(--bg-header);
+    border-bottom: 4px solid var(--bg-header);
+    box-shadow: var(--bg-header) 0 0 50px;
     transition: 0.5s ease-in-out;
 }
 
 .bebes:hover{
-    border-top: 4px solid #fff;
-    border-bottom: 4px solid #fff;
-    box-shadow: #fff 0 0 50px;
+    border-top: 4px solid var(--bg-header);
+    border-bottom: 4px solid var(--bg-header);
+    box-shadow: var(--bg-header) 0 0 50px;
     transition: 0.5s ease-in-out;
 }
 
 .title{
-    color: white;
+    color: var(--text-main);
     font-size: 36px;
     margin-bottom: -10px;
     text-align: center;
@@ -326,7 +329,7 @@ nav ul li:active {
 /* card profissionais */
 .card {
     background-color: #fff;
-    border: 4px solid #325471;
+    border: 4px solid var(--bg-header);
     border-radius: 25px;
     height: 260px; /* Deixe automático para o conteúdo respirar */
     padding-bottom: 20px;
@@ -354,7 +357,7 @@ nav ul li:active {
 }
 
 .card button{
-    background-color: #325471;
+    background-color: var(--bg-header);
     color: white;
     border: 2px solid black;
     border-radius: 50px;
@@ -388,10 +391,10 @@ nav ul li:active {
 }
 
 footer {
-    background-color: #325471;
+    background-color: var(--bg-header);
     color: white;
     height: 100px;
-    box-shadow: #325471 0 0 100px;
+    box-shadow: var(--bg-header) 0 0 100px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -438,8 +441,8 @@ bottom: 20px;
 right: 20px;
 display: none;
 background: #fff;
-color: #325471;
-border: 3px solid #325471;
+color: var(--bg-header);
+border: 3px solid var(--bg-header);
 padding: 10px 15px;
 border-radius: 50%;
 cursor: pointer;
@@ -448,7 +451,7 @@ transition: 0.3s;
 }
 
 #btnTopo:hover {
-background: #325471;
+background: var(--bg-header);
 border: 3px solid #fff;
 color: #fff;
 }
@@ -707,7 +710,6 @@ SIDEBAR LOGIN
     cursor: pointer;
     transition: background 0.2s;
     border: 3px solid #572063;
-    margin-top: 20px;
 }
 
 .botao-entrar:hover {
@@ -718,12 +720,11 @@ SIDEBAR LOGIN
 
 /* H3 */
 .h3 {
-font-size: 20px;
-color: black;
+font-size: 14px;
+color: #572063;
 margin: 10px 0;
-font-weight: 100px;
+font-weight: 100;
 text-align: center;
-margin-top: 150px;
 }
 
 /* LINHA DIVISÓRIA */
@@ -757,7 +758,7 @@ margin-top: 150px;
 .card-idade {
   display: flex;
   align-items: center;
-  background-color: #2c4a6b;
+  background-color: var(--accent-dark);
   border-radius: 12px;
   padding: 8px 14px;
   gap: 10px;
@@ -829,7 +830,7 @@ margin-top: 150px;
   font-family: Arial, sans-serif;
   font-size: 28px;
   font-weight: bold;
-  color: #2c4a6b;
+  color: var(--accent-dark);
 }
 
 .imagem-urso {
@@ -860,7 +861,7 @@ margin-top: 150px;
 
 /* Estilo das setas de navegação */
 .seta-carrossel {
-    background-color: #325471;
+    background-color: var(--bg-header);
     color: white;
     border: 2px solid white;
     border-radius: 50%;
@@ -877,13 +878,14 @@ margin-top: 150px;
 
 .seta-carrossel:hover {
     background-color: white;
-    color: #325471;
+    color: var(--accent-hover);
+    border: 2px solid var(--accent-hover);
 }
 
 /* Ajuste nos Cards de Cuidados */
 .cardC {
     background-color: #fff;
-    border: 4px solid #325471;
+    border: 5px solid var(--bg-header);
     border-radius: 25px;
     min-width: 280px; /* Largura levemente maior */
     height: 320px;    /* Aumentei a altura para caber o texto */
@@ -921,27 +923,4 @@ margin-top: 150px;
 .cardC:hover {
     transform: scale(1.02);
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
-}
-
-
-
-/* BOTÃO membro*/
-.botaoM {
-    background: linear-gradient(135deg, #ffae00, #ff7b00);
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    color: linear-gradient(90deg, #ff3300, #ff6f00, #0059ff, #00ffee);;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-    margin-top: 250px;
-}
-
-.botaoM:hover {
-    background-color: #FBFF00;
-    color: black;
-    background: linear-gradient(135deg, #ff7b00, #ffae00);
-   transition: transform 0.3s ease-in-out; /* Faz o movimento ser suave */
 }
