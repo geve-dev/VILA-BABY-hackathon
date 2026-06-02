@@ -5,7 +5,7 @@ const getAllComments = async () => {
     return rows;
 }
 
-const getCommentsByPost = async (id) => {
+const getCommentByPost = async (id) => {
     const [rows] = await pool.execute('SELECT * FROM comments WHERE comments_posts_id = ?', [id]);
     return rows;
 }
@@ -26,7 +26,7 @@ const deleteComment = async (id) => {
 
 module.exports = {
     getAllComments,
-    getCommentsByPost,
+    getCommentByPost,
     createComment,
     deleteComment
 };
