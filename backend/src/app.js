@@ -18,6 +18,7 @@ const emploRoutes = require('./routes/emplo_routes');
 const feedRoutes = require('./routes/feed_routes');
 const commentsRoutes = require('./routes/comments_routes');
 const likesRoutes = require('./routes/likes_routes');
+const postsRoutes = require('./routes/posts_routes');
 
 app.use('/communities', communitiesRoutes);
 app.use('/user', userRoutes);
@@ -25,5 +26,6 @@ app.use('/employees', emploRoutes);
 app.use('/feed', feedRoutes);
 app.use('/comments', commentsRoutes);
 app.use('/likes', likesRoutes);
+app.use('/posts', postsRoutes);
 
 module.exports = app;
