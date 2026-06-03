@@ -36,3 +36,14 @@ async function carregarMedico() {
 }
 
 carregarMedico();
+
+//abrir perfil usuário
+  document.getElementById("abrirPerfil").addEventListener("click", () => {
+    const usuario = localStorage.getItem("usuario");
+
+    if (usuario) {
+        window.location.href = "./perfil.html";
+    } else {
+        alert("Você precisa fazer login primeiro!");
+    }
+});
