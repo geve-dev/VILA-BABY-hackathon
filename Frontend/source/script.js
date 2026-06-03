@@ -78,3 +78,4 @@ function scrollCard(id, distance) {
         behavior: 'smooth'
     });
 }
+

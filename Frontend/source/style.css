@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: var(--bg-main);
+    color: var(--text-main);
 }
 
 #overlay {
@@ -68,8 +69,11 @@ header{
     width: 200px;
     height: 40px;
     display: flex;
-    align-items: center; /* Centraliza os botões dentro */
-    gap: 10px; /* Espaço entre os botões */
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 .conta{
@@ -197,14 +201,14 @@ nav ul li:active {
 }
 
 .banner .controls button{
-    background-color: white;
+    background-color: var(--button-bg);
     border-radius: 100px;
-    border: 3px solid var(--bg-header);
+    border: 3px solid var(--button-border);
     font-size: 25px;
     padding: 0 3px 5px 0;
     width: 40px;
     height: 40px;
-    color: var(--bg-header);
+    color: var(--button-text);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -328,7 +332,7 @@ nav ul li:active {
 
 /* card profissionais */
 .card {
-    background-color: #fff;
+    background-color: var(--bg-card);
     border: 4px solid var(--bg-header);
     border-radius: 25px;
     height: 260px; /* Deixe automático para o conteúdo respirar */
@@ -350,7 +354,7 @@ nav ul li:active {
 
 .card h3{
     font-size: 24px;
-    color: black;
+    color: var(--text-main);
     position: relative;
     left: 10px;
     bottom: 10px;
@@ -359,13 +363,12 @@ nav ul li:active {
 .card button{
     background-color: var(--bg-header);
     color: white;
-    border: 2px solid black;
+    border: 2px solid var(--button-border);
     border-radius: 50px;
-    padding: 10px 20px;
     cursor: pointer;
     margin-top: 25px;
     font-weight: bold;
-    font-size: 1.2rem       ;
+    font-size: 1.2rem;
     position: relative;
     bottom: 40px;
     left: 35px;
@@ -385,14 +388,14 @@ nav ul li:active {
 
 .card:hover{
     transform: scale(1.05);
-    box-shadow: 0 10px 25px #fff;
+    box-shadow: 0 10px 25px var(--shadow-light);
     filter: opacity(0.9);
     z-index: 0;
 }
 
 footer {
     background-color: var(--bg-header);
-    color: white;
+    color: var(--footer-text);
     height: 100px;
     box-shadow: var(--bg-header) 0 0 100px;
     display: flex;
@@ -420,7 +423,7 @@ footer {
     cursor: pointer;
     transition: color 0.3s ease;
     font-size: 30px; 
-    color:#ffffff;
+    color: var(--text-white);
 }
 
 .redes-sociais .fa-instagram:hover {
@@ -440,8 +443,8 @@ position: fixed;
 bottom: 20px;
 right: 20px;
 display: none;
-background: #fff;
-color: var(--bg-header);
+background: var(--bg-card);
+color: var(--text-main);
 border: 3px solid var(--bg-header);
 padding: 10px 15px;
 border-radius: 50%;
@@ -491,10 +494,10 @@ SIDEBAR LOGIN
 #sidebar-login {
     position: fixed;
     top: 0;
-    right: -400px; /* começa escondido */
+    right: -400px; 
     width: 350px;
     height: 100%;
-    background: #F1C6D9;
+    background-color: var(--bg-header);
     box-shadow: -2px 0 8px rgba(0,0,0,0.5);
     padding: 20px;
     transition: right 0.3s ease;
@@ -511,24 +514,23 @@ SIDEBAR LOGIN
     display: flex;
     align-items: center;
     justify-content: space-around; 
-    
 }
 
-.titulo{
+.titulo {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
     font-size: 24px;
     font-weight: bold;
-    color: #572063;
+    color: var(--text-main); /* Já estava funcionando */
     position: relative;
     left: -30px;
     margin-left: 20px;
 }
 
-.titulo svg{
-    color: #572063;
+.titulo svg {
+    color: var(--text-main); /* ARRUMADO: O ícone agora acompanha o tema */
     padding: 1px;
     margin-right: 20px;
 }
@@ -539,13 +541,13 @@ SIDEBAR LOGIN
     border: none;
     font-size: 25px;
     cursor: pointer;
-    color: #572063;
+    color: var(--text-main); /* ARRUMADO: O 'X' agora acompanha o tema */
     display: flex;
     align-items: center;
 }
 
 #fechar-login:hover {
-    color: #895D93;
+    color: #895D93; /* Rosa do tema claro */
 }
 
 /* FORM */
@@ -553,94 +555,6 @@ SIDEBAR LOGIN
     display: flex;
     flex-direction: column;
     gap: 12px;
-}
-
-
-/* BOTÕES DE LOGIN */
-/* BOTÕES DE LOGIN - um embaixo do outro */
-.opcoes-login {
-    display: flex;
-    flex-direction: column; /* muda para coluna */
-    gap: 12px; /* espaço entre os botões */
-}
-
-/* Botões individuais */
-.botao-codigo,
-.gmail,
-.face {
-    width: 100%; /* ocupa toda a largura igual aos inputs */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.2s;
-    color: #fff;
-}
-
-/* Botões individuais */
-.botao-codigo {
-    border-radius: 50px;
-    background: #572063;
-    color: #FBFF00;
-    font-size: 17px;
-    border: 3px solid #572063;
-}
-
-.botao-codigo:hover {
-    background-color: #FBFF00;
-    color: #572063;
-    border: 3px solid #572063;
-}
-
-.gmail {
-    background-color: transparent;
-    border: 2px solid #333;
-    color: #895D93;
-}
-
-.gmail span{
-    font-weight: bold;
-    font-size: 17px;
-    color: #895D93;
-    margin-left: 6px;
-}
-
-.gmail:hover {
-    color: #572063;
-    background: #7a7a784d;
-    border-color: #895D93;
-}
-
-
-
-.face {
-    background-color: transparent;
-    border: 2px solid #333;
-    color: #895D93;
-}
-
-.face span{
-    font-weight: bold;
-    font-size: 17px;
-    color: #895D93;
-    margin-left: 6px;
-}
-
-.face:hover {
-    color: #572063;
-    background: #7a7a784d;
-    border-color: #895D93;
-
-}
-
-.botao-codigo i,
-.gmail i,
-.face i {
-    margin-right: 8px;
 }
 
 /* INPUTS */
@@ -653,98 +567,105 @@ SIDEBAR LOGIN
 .inputs-login input {
     width: 95%;
     padding: 10px;
-    border: 1px solid #444;
     border-radius: 8px;
     background: transparent;
-    color: #572063;
+    color: var(--text-main); /* ARRUMADO: O texto digitado segue o tema */
+    border: 1px solid var(--text-main); /* ARRUMADO: A borda se adapta ao tema */
     font-size: 14px;
     outline: none;
+}
+
+/* Deixa o texto de exemplo legível em ambos os modos */
+.inputs-login input::placeholder {
+    color: var(--text-main);
+    opacity: 0.6;
 }
 
 .inputs-login input:hover {
     border-color: #895D93;
     background: #7a7a784d;
-
 }
 
 .inputs-login input:focus {
-    border-color: #572063;
-}
-
-/* LINKS */
-.esqueci-senha {
-    text-align: right;
-    font-size: 12px;
-    color: #895D93;
-    cursor: pointer;
-}
-
-.esqueci-senha:hover {
-    text-decoration: underline;
-    color: #572063;
-}
-
-.cadastre-se{
-    color: #572063;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.cadastre-se:hover {
-    text-decoration: underline;
-    color: #572063;
-}
-
-/* BOTÃO ENTRAR */
-.botao-entrar {
-    width: 100%;
-    padding: 12px;
-    background: #572063;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-    border: 3px solid #572063;
-}
-
-.botao-entrar:hover {
-    background-color: #FBFF00;
-    color: #572063;
-    border: 3px solid #572063;
+    border-color: var(--text-main);
 }
 
 /* H3 */
 .h3 {
-font-size: 14px;
-color: #572063;
-margin: 10px 0;
-font-weight: 100;
-text-align: center;
+    font-size: 20px;
+    color: var(--text-main); /* Já estava funcionando */
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 150px;
 }
 
 /* LINHA DIVISÓRIA */
-.linha1{
+.linha1 {
     border: 0;
     height: 1px;
-    background: #572063;
+    background: var(--text-main); /* Já estava funcionando */
     margin-bottom: 70px;
 }
 
-.linha2{
+.linha2 {
     border: 0;
     height: 1px;
-    background: #572063;
+    background: var(--text-main); /* ARRUMADO: Segunda linha segue o tema */
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
+/* BOTÃO ENTRAR - Estilo Base */
+.botao-entrar {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 3px solid var(--text-main); /* A borda segue a cor principal do tema atual */
+    border-radius: 8px;
+    color: var(--text-main); /* O texto segue a cor principal do tema atual */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
 
+/* EFEITO NO MODO CLARO (Azul escuro #334155) */
+.botao-entrar:hover {
+    background-color: #334155; /* Seu tom de azul */
+    border-color: #334155;
+    color: #ffffff; /* Texto branco para dar leitura */
+    box-shadow: 0 0 15px #334155;
+    transform: translateY(-3px);
+}
 
+/* EFEITO NO MODO ESCURO (Rosa claro #f9a8d4) */
+/* Aplica se o seu JS usar tanto classe quanto atributo no body/html */
+[data-theme="dark"] .botao-entrar:hover,
+.dark-mode .botao-entrar:hover {
+    background-color: #f9a8d4; /* Seu tom de rosa */
+    border-color: #f9a8d4;
+    color: #1e293b; /* Texto escuro aqui para dar contraste no rosa claro */
+    box-shadow: 0 0 15px #f9a8d4;
+}
+/* BOTÃO MEMBRO */
+.botaoM {
+    background: linear-gradient(135deg, #ffae00, #ff7b00);
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff; /* Texto branco fixo para leitura no botão laranja */
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 250px;
+}
+
+.botaoM:hover {
+    background: linear-gradient(135deg, #ff7b00, #ffae00);
+    transform: scale(1.02);
+}
 
 /* novo */
 
@@ -877,14 +798,14 @@ text-align: center;
 }
 
 .seta-carrossel:hover {
-    background-color: white;
+    background-color: var(--bg-card);
     color: var(--accent-hover);
     border: 2px solid var(--accent-hover);
 }
 
 /* Ajuste nos Cards de Cuidados */
 .cardC {
-    background-color: #fff;
+    background-color: var(--bg-card);
     border: 5px solid var(--bg-header);
     border-radius: 25px;
     min-width: 280px; /* Largura levemente maior */
@@ -908,13 +829,13 @@ text-align: center;
 
 .cardC h3 {
     font-size: 20px;
-    color: black;
+    color: var(--text-main);
     margin: 0 0 10px 0;
     font-weight: bold;
 }
 
 .cardC p {
-    color: #444;
+    color: var(--text-main);
     font-size: 20px;
     line-height: 1.4;
     margin: 0;
@@ -923,4 +844,201 @@ text-align: center;
 .cardC:hover {
     transform: scale(1.02);
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ================================
+   RESPONSIVIDADE - INDEX
+   ================================ */
+
+/* TABLET (≤1024px) */
+@media (max-width: 1024px) {
+    header {
+        gap: 40px;
+    }
+
+    .busca {
+        width: 300px;
+    }
+
+    nav {
+        width: 70%;
+    }
+
+    nav ul li a {
+        font-size: 17px;
+    }
+
+    .banner {
+        height: 380px;
+        margin-bottom: 120px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .card {
+        min-width: 200px;
+    }
+
+    .cardC {
+        min-width: 240px;
+    }
+}
+
+/* CELULAR (≤768px) */
+@media (max-width: 768px) {
+    header {
+        width: 95%;
+        gap: 8px;
+        justify-content: space-between;
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 26px;
+        margin-left: 0;
+    }
+
+    .busca {
+        display: none;
+    }
+
+    .botao-header {
+        width: auto;
+        gap: 8px;
+    }
+
+    nav {
+        width: 95%;
+        height: 44px;
+    }
+
+    nav ul {
+        gap: 1%;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    nav ul li {
+        padding: 4px 6px;
+    }
+
+    .banner {
+        top: 120px;
+        height: 220px;
+        margin-bottom: 140px;
+    }
+
+    .banner .controls button {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .title {
+        font-size: 22px;
+        padding: 0 10px;
+    }
+
+    /* Cards de meses */
+    .lista-cards {
+        gap: 10px;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .card-idade {
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .card-idade .numero {
+        font-size: 24px;
+    }
+
+    .card-idade .imagem {
+        width: 55px;
+        height: 50px;
+    }
+
+    /* Ursos */
+    .lista-ursos {
+        gap: 20px;
+        padding: 14px;
+    }
+
+    .imagem-urso {
+        width: 65px;
+        height: 65px;
+    }
+
+    .mes {
+        font-size: 20px;
+    }
+
+    /* Carrossel cuidados e profissionais */
+    .carrossel-container-geral {
+        width: 100%;
+    }
+
+    .seta-carrossel {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .cardC {
+        min-width: 220px;
+        height: 280px;
+    }
+
+    .cardC img {
+        height: 130px;
+    }
+
+    .cardC h3 {
+        font-size: 16px;
+    }
+
+    .cardC p {
+        font-size: 15px;
+    }
+
+    .card {
+        min-width: 180px;
+        height: 220px;
+    }
+
+    .card img {
+        height: 110px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+    }
+
+    .card button {
+        font-size: 1rem;
+        margin-top: 10px;
+        bottom: 30px;
+    }
+
+    /* Sidebar login */
+    #sidebar-login {
+        width: 100%;
+        right: -100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    /* Footer */
+    footer {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        gap: 15px;
+    }
 }
