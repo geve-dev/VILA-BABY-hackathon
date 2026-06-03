@@ -10,6 +10,11 @@ const getUserById = async (id) => {
     return rows[0];
 };
 
+const getUserByEmail = async (email) => {
+    const [rows] = await pool.execute('SELECT * FROM users WHERE user_email = ?', [email]);
+    return rows[0];
+};
+
 const createUser = async (userData) => {
     const { user_name, user_email, user_password, user_url, user_desc } = userData;
     const [result] = await pool.execute(
@@ -36,6 +41,7 @@ const deleteUser = async (id) => {
 module.exports = {
     getAllUsers,
     getUserById,
+    getUserByEmail,
     createUser,
     updateUser,
     deleteUser

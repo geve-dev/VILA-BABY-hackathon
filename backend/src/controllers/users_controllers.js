@@ -18,7 +18,8 @@ const FindUserById = async (req, res) => {
             res.status(404).json({ error: 'Usuário não encontrado' });
         }
     } catch (error) {
-        res.status(500).json({ error: 'Erro ao buscar usuário' });
+        console.error(error);
+        res.status(500).json({ erro: error.message });
     }
 };
 
@@ -47,6 +48,27 @@ const DeleteUser = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Erro ao excluir usuário' });
     }
+};
+
+const LoginUser = async (req, res) => {
+    const { user_email, user_password } = req.body;
+
+    if (!user_email || !user_password) {
+        return res.status(400).json({ error: 'Email e senha são obrigatórios' });
+    }
+
+    try {
+        const user = await repo.getUserByEmail(user_email);
+        if (!user || user.user_password !== user_password) {
+            return res.status(401).json({ error: 'Email ou senha inválidos' });
+        }
+
+        const { user_password: _, ...userWithoutPassword } = user;
+        res.json({ message: 'Login realizado com sucesso', user: userWithoutPassword });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro ao fazer login' });
+    }
 };      
 
 module.exports = {
@@ -54,5 +76,6 @@ module.exports = {
     FindUserById,
     CreateUser,
     UpdateUser,
-    DeleteUser
+    DeleteUser,
+    LoginUser
 };
