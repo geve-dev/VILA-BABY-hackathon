@@ -924,3 +924,40 @@ text-align: center;
     transform: scale(1.02);
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
 }
+
+#abrir-login {
+    background: #ff7aa2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 122, 162, 0.25);
+}
+
+#abrir-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(255, 122, 162, 0.35);
+}
+
+#abrir-login:active {
+    transform: translateY(0);
+}
+
+#abrir-login.logout {
+    background: #ff5c5c;
+    box-shadow: 0 4px 10px rgba(255, 92, 92, 0.25);
+}
+
+.light-mode #abrir-login {
+    background: #7ec8ff;
+    color: white;
+}
+
+.dark-mode #abrir-login {
+    background: #2d6cdf;
+    color: white;
+}

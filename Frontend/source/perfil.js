@@ -14,3 +14,14 @@ function trocarAba(aba) {
         document.getElementById('tab-grupos').classList.add('active');
     }
 }
+
+const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+if (!usuario) {     
+    window.location.href = './index.html'; // ou login.html
+} else {
+    document.getElementById('url').src = usuario.user_url;
+    document.getElementById('nome').textContent = usuario.user_name;
+    document.getElementById('desc').textContent = usuario.user_desc;
+   
+}

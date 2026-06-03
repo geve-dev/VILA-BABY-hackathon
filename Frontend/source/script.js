@@ -43,6 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarLogin = document.getElementById('sidebar-login');
   const abrirLogin   = document.getElementById('abrir-login');
   const fecharLogin  = document.getElementById('fechar-login');
+  
+
+  document.getElementById("abrirPerfil").addEventListener("click", () => {
+    const usuario = localStorage.getItem("usuario");
+
+    if (usuario) {
+        window.location.href = "./perfil.html";
+    } else {
+        alert("Você precisa fazer login primeiro!");
+    }
+});
+
 
   function abrirSidebar(sidebar) {
     if (!sidebar) return;
@@ -76,5 +88,75 @@ function scrollCard(id, distance) {
     container.scrollBy({
         left: distance,
         behavior: 'smooth'
+    });
+}
+
+// Função para carregar funcionários do backend
+async function carregarFuncionarios() {
+    try {
+        const response = await fetch('http://localhost:3001/employees');
+        const employees = await response.json();
+
+        const container = document.getElementById('employees-container');
+
+        employees.forEach(employee => {
+            container.innerHTML += `
+                <div class="card">
+                    <img src="${employee.employees_url}" alt="${employee.employees_name}">
+                    <h3>${employee.employees_name}</h3>
+                    <button class="prof" onclick="window.location.href='medico.html?id=${employee.employees_id}'">
+                      Ver mais
+                  </button>
+                </div>
+            `;
+        });
+
+    } catch (erro) {
+        console.error('Erro ao carregar funcionários:', erro);
+    }
+}
+
+carregarFuncionarios();
+
+//fazendo login
+document.getElementById('botao-entrar').addEventListener('click', async (event) => {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+try {        const response = await fetch('http://localhost:3001/user/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user_email: email, user_password: senha })
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+            localStorage.setItem('usuario', JSON.stringify(data.user));
+            window.location.href = './perfil.html';
+        } else {
+            alert(data.mensagem || 'Erro ao fazer login');
+        } 
+    } catch (erro) {
+        console.error('Erro ao fazer login:', erro);
+        alert('Erro ao fazer login');
+    }
+});
+
+//fazendo logout
+const btnLogin = document.getElementById('abrir-login');
+const usuario = localStorage.getItem('usuario');
+
+if (usuario) {
+    btnLogin.textContent = 'Logout';
+
+    btnLogin.addEventListener('click', () => {
+        localStorage.removeItem('usuario');
+        window.location.href = './index.html';
+    });
+} else {
+    btnLogin.textContent = 'Login';
+
+    btnLogin.addEventListener('click', () => {
+        document.getElementById('sidebar-login').classList.add('ativa');
     });
 }
